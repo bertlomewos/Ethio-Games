@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Registration Form in HTML CSS</title>
+  <link rel="stylesheet" href="../css/upload.css" />
+  <style>
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .navigation-buttons {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <section class="container" id="scrollContainer">
+    <header>Upload Area</header>
+    <form action="#" class="form">
+
+      <!-- Section 1 -->
+      <div class="section active" id="section1">
+        <div class="input-box">
+          <label>Title: </label>
+          <input type="text" placeholder="Game Name" required />
+        </div>
+        <div class="input-box">
+          <label>Short-Description (Tag-line):</label>
+          <input type="text" placeholder="Optional" required />
+        </div>
+        <div class="input-box">
+          <label>Status: </label>
+          <div class="select-box">
+            <select>
+              <option value="released">Released</option>
+              <option value="development">In Development</option>
+              <option value="on_hold">On Hold</option>
+              <option value="canceled">Canceled</option>
+              <option value="prototype">Prototype</option>
+            </select>
+          </div>
+        </div>
+        <div class="gender-box">
+          <h3>Pricing: </h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-donation" name="pricing" checked />
+              <label for="check-donation">Donation</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-paid" name="pricing" />
+              <label for="check-paid">Paid</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-free" name="pricing" />
+              <label for="check-free">Free</label>
+            </div>
+            <div class="input-box">
+              <input type="number" placeholder="Enter price">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section" id="section2">
+        <div class="input-box address">
+          <label>Media</label><br>
+          <label for="">Cover for your game:</label>
+          <div class="wrapper">
+            <input class="file-input" type="file" name="file" id="cover-img" hidden>
+            <label for="cover-img" class="leb"><img class="up-img" src="../images/bx-upload.svg" alt="upload">Cover-image</label>
+            <span id="cover-name"></span>
+            <script>
+              const fileInput = document.getElementById('cover-img');
+              const fileNameSpan = document.getElementById('cover-name');
+            
+              fileInput.addEventListener('change', function() {
+                const file = fileInput.files[0];
+                if (file) {
+                  fileNameSpan.textContent = 'File: ' + file.name;
+                } else {
+                  fileNameSpan.textContent = '';
+                }
+              });
+            </script>
+          </div>
+          <label for="youtube-link">YouTube Video Link:</label>
+          <input type="text" id="youtube-link" name="youtube-link" placeholder="Enter YouTube video link of your game"><br>
+          <label for="screenshot-img">Screenshots of your game:</label>
+          <div class="wrapper">
+            <input class="file-input" type="file" name="file" id="screenshot-img" hidden>
+            <label for="screenshot-img" class="leb"><img class="up-img" src="../images/bx-upload.svg" alt="upload">Screenshots</label>
+            <span id="screenshot-name"></span>
+            <script>
+              const fileInput2 = document.getElementById('screenshot-img');
+              const fileNameSpan2 = document.getElementById('screenshot-name');
+            
+              fileInput2.addEventListener('change', function() {
+                const file = fileInput2.files[0];
+                if (file) {
+                  fileNameSpan2.textContent = 'File: ' + file.name;
+                } else {
+                  fileNameSpan2.textContent = '';
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="section" id="section3">
+        <div>
+          <legend>Details</legend><br>
+          <label for="">Platform: </label>
+          <div class="gender">
+            <input type="checkbox" id="ios" name="platform[]" value="ios">
+            <label for="ios">iOS</label>
+          </div>
+          <div class="gender">
+            <input type="checkbox" id="android" name="platform[]" value="android">
+            <label for="android">Android</label>
+          </div>
+          <div class="gender">
+            <input type="checkbox" id="windows" name="platform[]" value="windows">
+            <label for="windows">Windows</label>
+          </div>
+          <div class="gender">
+            <input type="checkbox" id="mac" name="platform[]" value="mac">
+            <label for="mac">Mac</label>
+          </div>
+        </div>
+        <br>
+        <legend>Genre: </legend>
+        <div class="select-box">
+          <select>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Card Game">Card Game</option>
+            <option value="Educational">Educational</option>
+            <option value="Fighting">Fighting</option>
+            <option value="interactive fiction">Interactive Fiction</option>
+            <option value="platformer">Platformer</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Racing">Racing</option>
+            <option value="Rhythm">Rhythm</option>
+            <option value="Role Playing">Role Playing</option>
+            <option value="shooter">Shooter</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Survival">Survival</option>
+            <option value="Strategy">Strategy</option>
+            <option value="Visual Novel">Visual Novel</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <br>
+        <div>
+          <legend>Description: </legend>
+          <textarea name="" id="" rows="6" cols="95%"></textarea>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="section" id="section4">
+        <legend>Upload:</legend>
+        <div class="wrapper">
+          <input class="file-input" type="file" name="file" id="game" hidden>
+          <label for="game" class="leb"><img class="up-img" src="../images/bx-upload.svg" alt="upload">Game: </label>
+          <span id="game-name"></span>
+          <script>
+            const fileInput3 = document.getElementById('game');
+            const fileNameSpan3 = document.getElementById('game-name');
+          
+            fileInput3.addEventListener('change', function() {
+              const file = fileInput3.files[0];
+              if (file) {
+                fileNameSpan3.textContent = 'File: ' + file.name;
+              } else {
+                fileNameSpan3.textContent = '';
+              }
+            });
+          </script>
+        </div>
+      </div>
+
+      <div class="navigation-buttons">
+        <button type="button" id="prevBtn" onclick="navigate(-1)">Previous</button>
+        <button type="button" id="nextBtn" onclick="navigate(1)">Next</button>
+        <button type="submit" id="submitBtn" style="display: none;">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    let currentSection = 1;
+    const totalSections = 4;
+
+    function navigate(direction) {
+      const currentSectionElement = document.getElementById('section' + currentSection);
+      currentSection += direction;
+      const nextSectionElement = document.getElementById('section' + currentSection);
+
+      if (currentSection < 1) {
+        currentSection = 1;
+      } else if (currentSection > totalSections) {
+        currentSection = totalSections;
+      }
+
+      currentSectionElement.classList.remove('active');
+      nextSectionElement.classList.add('active');
+
+      document.getElementById('prevBtn').style.display = currentSection === 1 ? 'none' : 'inline';
+      document.getElementById('nextBtn').style.display = currentSection === totalSections ? 'none' : 'inline';
+      document.getElementById('submitBtn').style.display = currentSection === totalSections ? 'inline' : 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      navigate(0); // Initialize the navigation
+    });
+  </script>
+</body>
+</html>
